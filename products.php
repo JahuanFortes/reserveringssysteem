@@ -12,6 +12,7 @@
             <h1>Products</h1>
         </header>
 
+
         <nav class="navbar">
             <ul class="nav-position">
                 <li><a class="navlink" href="index.php">Home</a></li>
