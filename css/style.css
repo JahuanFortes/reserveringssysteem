@@ -1,0 +1,111 @@
+/*#region html*/
+:root {
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+/*#endregion*/
+
+/*#region body*/
+body {
+    background-color: #8da9c4;
+    margin: 0px;
+    padding: 0px;
+}
+/*#endregion*/
+
+/*#region header*/
+.header {
+    background-color: #0b2545;
+    color: azure;
+    text-align: center;
+    margin: 0px;
+    padding: 0.25rem;
+}
+/*#endregion*/
+
+/*#region navbar*/
+.navbar {
+    background-color: #13315c;
+    padding: 0.25px;
+    margin: 0px;
+}
+
+.nav-position {
+    display: flex;
+    list-style: none;
+    justify-content: space-evenly;
+}
+
+.navlink:link {
+    color: #f0ffff;
+    text-decoration: none;
+}
+
+.navlink:visited {
+    color: azure;
+}
+
+.navstyle {
+}
+.navstyle:hover {
+    background-color: #134074;
+}
+/*#endregion*/
+
+/*#region table*/
+.table{
+    margin-top: 3rem;
+    margin-left: 10.5rem;
+    overflow: hidden;
+}
+.table th, .table td{
+    border: 1px solid #ddd;
+    padding: 6px;
+}
+
+.table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #13315c;
+    color: white;
+}
+
+.table tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+
+.table tr:hover {
+    background-color: #ddd;
+}
+/*#endregion*/
+
+/*#region form*/
+.container{
+    display: grid;
+}
+.form{
+
+}
+/*#endregion*/
+
+/*#region cards*/
+.card {
+    background-color: #eef4ed;
+}
+
+.card img {
+    height: 8rem;
+    width: 9rem;
+}
+/*#endregion*/
+
+/*#region footer*/
+.footer {
+    background-color: darkgrey;
+    height: 9.75rem;
+    overflow: hidden;
+    margin-top: 30.9rem;
+}
+/*#endregion*/
+
