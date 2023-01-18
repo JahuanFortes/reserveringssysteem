@@ -55,8 +55,7 @@ body {
 /*#region table*/
 .table{
     margin-top: 3rem;
-    margin-left: 10.5rem;
-    overflow: hidden;
+    margin-left: 1.5rem;
 }
 .table th, .table td{
     border: 1px solid #ddd;
@@ -97,6 +96,11 @@ body {
 .card img {
     height: 8rem;
     width: 9rem;
+}
+
+.login-card{
+    height: 40rem;
+    width: 40rem;
 }
 /*#endregion*/
 

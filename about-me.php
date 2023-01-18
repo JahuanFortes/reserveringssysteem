@@ -4,14 +4,16 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Database Customers</title>
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>custom-orders</title>
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
         <header class="header">
-            <h1>Products</h1>
+            <h1>About-me</h1>
         </header>
-
         <nav class="navbar">
             <ul class="nav-position">
                 <li><a class="navlink" href="home.php">Home</a></li>
@@ -23,17 +25,8 @@
                 <li><a class="navlink" href="login.php">link</a></li>
             </ul>
         </nav>
-
         <main>
-            <section>
-                <div>
 
-                </div>
-            </section>
-
-            <section>
-
-            </section>
         </main>
     </body>
 </html>

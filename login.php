@@ -47,7 +47,7 @@ if (isset($_POST['submit'])) {
 
                 ];
                 // Redirect to secure page
-                header("Location: index.php");
+                header("Location: home.php");
             } else {
                 //error incorrect log in
                 $errors['loginFailed'] = 'The provided credentials do not match.';
@@ -61,44 +61,34 @@ if (isset($_POST['submit'])) {
 ?>
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-
-<header class="header">
-    <h1>Database Customers</h1>
-</header>
-
-<nav class="nav">
-    <ul>
-        <li>Home</li>
-        <li>About me</li>
-        <li>Products</li>
-        <li>Contact</li>
-        <li><a href="register.php">link</a> </li>
-    </ul>
-</nav>
-<hr/>
-<form action="" method="post" name="form">
-    <div class="form">
-        <label for="email">
-            <input type="text" name="email" autocomplete="off" placeholder="E-mail" required>
-        </label>
-    </div>
-    <div>
-        <label for="password">
-            <input type="text" name="password" autocomplete="off" placeholder="Wachtwoord" required>
-        </label>
-    </div>
-    <div class="form">
-        <input type="submit" name="submit" value="submit">
-    </div>
-</form>
-
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <header class="header">
+            <h1>Database Customers</h1>
+        </header>
+        <main class="login-card">
+            <form action="" method="post" name="form">
+                <div class="form">
+                    <label for="email">
+                        <input type="text" name="email" autocomplete="off" placeholder="E-mail" required>
+                    </label>
+                </div>
+                <div>
+                    <label for="password">
+                        <input type="text" name="password" autocomplete="off" placeholder="Wachtwoord" required>
+                    </label>
+                </div>
+                <div class="form">
+                    <input type="submit" name="submit" value="submit">
+                </div>
+            </form>
+        </main>
+    </body>
 </html>

@@ -41,6 +41,7 @@ if (isset($_POST['submit'])) {
         $errors['password'] = 'Dit is een required field';
     }
     if (empty($errors)) {
+        $password = password_hash($password, PASSWORD_DEFAULT);
         $query = "INSERT INTO customers (firstname,lastname,email,address,streetname,postalcode,phone_number,password)
                   VALUES('$firstname','$lastname','$email','$address','$streetname','$postalcode','$phone_number','$password')";
         $clients = $db->query($query) or die($db->error);
@@ -61,17 +62,9 @@ if (isset($_POST['submit'])) {
     </head>
     <body>
         <header class="header">
-            <h1>Database Customers</h1>
+            <h1>Register</h1>
         </header>
-        <nav class="navbar">
-            <ul class="nav-position">
-                <li><a class="navlink" href="#">Home</a></li>
-                <li><a class="navlink" href="#">Products</a></li>
-                <li><a class="navlink" href="#">About me</a></li>
-                <li><a class="navlink" href="#">Contact</a></li>
-            </ul>
-        </nav>
-        <a href="index.php">Terug</a>
+        <a href="home.php">Terug</a>
         <br><br>
         <main>
             <form action="" method="post" name="form">

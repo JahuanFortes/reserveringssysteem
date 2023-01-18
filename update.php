@@ -37,7 +37,7 @@ if (isset($_POST['submit'])) {
         <li>Contact</li>
     </ul>
 </nav>
-<a href="index.php">Terug</a>
+<a href="overview.php">Terug</a>
 <br><br>
 
 <form action="" method="post" name="form">
