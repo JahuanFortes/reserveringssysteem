@@ -13,14 +13,36 @@ body {
 }
 /*#endregion*/
 
+/*#region error text*/
+.error-text{
+    text-align: center;
+}
+/*#endregion*/
+
+/*#region error img*/
+.error-img{
+    margin-left: 41.2rem;
+    margin-right: auto;
+    width: 45%;
+    height: 45%;
+}
+/*#endregion*/
+
 /*#region header*/
-.header {
+.header{
     background-color: #0b2545;
     color: azure;
     text-align: center;
     margin: 0px;
     padding: 0.25rem;
+    max-height: 5rem;
 }
+.header svg{
+    max-height: 3rem;
+    max-width: 3rem;
+    transform: translate(47.5vw,-8.3vh);
+}
+
 /*#endregion*/
 
 /*#region navbar*/
@@ -55,7 +77,7 @@ body {
 /*#region table*/
 .table{
     margin-top: 3rem;
-    margin-left: 1.5rem;
+    max-width: 65%;
 }
 .table th, .table td{
     border: 1px solid #ddd;
@@ -82,9 +104,11 @@ body {
 /*#region form*/
 .container{
     display: grid;
+    max-width: 20rem;
+    width: 10px;
 }
 .form{
-
+    color: red;
 }
 /*#endregion*/
 
@@ -102,6 +126,32 @@ body {
     height: 40rem;
     width: 40rem;
 }
+.choice {
+    background: #eef4ed;
+    height: 3rem;
+    max-width: 30rem;
+    display: flex;
+    justify-content: center;
+    border: #13315c;
+    border: 0.2rem solid;
+    border-width: 3px;
+    border-radius: 10px;
+    padding: 18px;
+}
+.card-link {
+    text-decoration: none;
+}
+.card-link > p {
+    text-align: center;
+    color: rgb(0, 0, 0);
+}
+.card-link:link{
+    color: #13315c;
+}
+.card-link:visited {
+    color: #13315c;
+}
+
 /*#endregion*/
 
 /*#region footer*/

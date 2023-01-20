@@ -14,39 +14,39 @@ if (isset($_POST['submit'])) {
     $phone_number = $_POST['phone_number'];
     $password = $_POST['password'];
 
-
-    $errors = [];
-    if ($firstname == '') {
-        $errors['firstname'] = 'Dit is een required field';
+    $errors=[];
+    if ($firstname == "") {
+        $errors['firstname'] = 'Dit is een requierd field';
     }
-    if ($lastname == '') {
-        $errors['lastname'] = 'Dit is een required field';
+    if ($lastname == "") {
+        $errors['lastname'] = 'Dit is een requierd field';
     }
-    if ($email == '') {
-        $errors['email'] = 'Dit is een required field';
+    if ($email == "") {
+        $errors['email'] = 'Dit is een requierd field';
     }
-    if ($address == '') {
-        $errors['address'] = 'Dit is een required field';
+    if ($address == "") {
+        $errors['address'] = 'Dit is een requierd field';
     }
-    if ($streetname == '') {
-        $errors['streetname'] = 'Dit is een required field';
+    if ($streetname == "") {
+        $errors['streetname'] = 'Dit is een requierd field';
     }
-    if ($postalcode == '') {
-        $errors['postalcode'] = 'Dit is een required field';
+    if ($postalcode == "") {
+        $errors['postalcode'] = 'Dit is een requierd field';
     }
-    if ($phone_number == '') {
-        $errors['phone_number'] = 'Dit is een required field';
+    if ($phone_number == "") {
+        $errors['phone_number'] = 'Dit is een requierd field';
     }
-    if ($password == '') {
-        $errors['password'] = 'Dit is een required field';
+    if ($password == "") {
+        $errors['password'] = 'Dit is een requierd field';
     }
     if (empty($errors)) {
         $password = password_hash($password, PASSWORD_DEFAULT);
         $query = "INSERT INTO customers (firstname,lastname,email,address,streetname,postalcode,phone_number,password)
                   VALUES('$firstname','$lastname','$email','$address','$streetname','$postalcode','$phone_number','$password')";
         $clients = $db->query($query) or die($db->error);
-    }
 
+        header("Location: home.php");
+    }
 }
 
 ?>
@@ -61,8 +61,13 @@ if (isset($_POST['submit'])) {
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
-        <header class="header">
-            <h1>Register</h1>
+        <header>
+            <div class="header">
+                <h1>Register</h1>
+            </div>
+            <div class="account">
+
+            </div>
         </header>
         <a href="home.php">Terug</a>
         <br><br>
@@ -70,44 +75,80 @@ if (isset($_POST['submit'])) {
             <form action="" method="post" name="form">
                 <div class="container">
                     <div class="form">
-                        <label for="firstname">
-                            <input type="text" name="firstname"autocomplete="off" placeholder="Voornaam" required>
-                        </label>
+                        <div>
+                            <label for="firstname">
+                                <input type="text" id="firstname" name="firstname"autocomplete="off" placeholder="Voornaam" >
+                            </label>
+                            <p>
+                                <?= $errors['firstname'] ?? ''?>
+                            </p>
+                        </div>
                     </div>
                     <div class="form">
-                        <label for="lastname">
-                            <input type="text" name="lastname" autocomplete="off" placeholder="Achternaam" required>
-                        </label>
+                        <div>
+                            <label for="lastname">
+                                <input type="text" name="lastname"  autocomplete="off" placeholder="Achternaam" >
+                            </label>
+                            <p>
+                                <?= $errors['lastname'] ?? ''?>
+                            </p>
+                        </div>
                     </div>
                     <div class="form">
-                        <label for="email">
-                            <input type="text" name="email" autocomplete="off" placeholder="E-mail" required>
-                        </label>
+                        <div>
+                            <label for="email">
+                                <input type="text" name="email" autocomplete="off" placeholder="E-mail" >
+                            </label>
+                            <p>
+                                <?= $errors['email'] ?? ''?>
+                            </p>
+                        </div>
                     </div>
                     <div class="form">
-                        <label for="address">
-                            <input type="text" name="address" autocomplete="off" placeholder="Woonplaats" required>
-                        </label>
+                        <div>
+                            <label for="address">
+                                <input type="text" name="address" autocomplete="off" placeholder="Woonplaats" >
+                            </label>
+                        </div>
+                        <p>
+                            <?= $errors['address'] ?? ''?>
+                        </p>
                     </div>
                     <div class="form">
-                        <label for="streetname">
-                            <input type="text" name="streetname" autocomplete="off" placeholder="Straatnaam" required>
-                        </label>
+                        <div>
+                            <label for="streetname">
+                                <input type="text" name="streetname"  autocomplete="off" placeholder="Straatnaam" >
+                            </label>
+                            <p>
+                                <?= $errors['streetname'] ?? ''?>
+                            </p>
+                        </div>
                     </div>
                     <div class="form">
                         <label for="postalcode">
-                            <input type="text" name="postalcode" autocomplete="off" placeholder="Postcode" required>
+                            <input type="text" name="postalcode"  autocomplete="off" placeholder="Postcode" >
                         </label>
+                        <p>
+                            <?= $errors['postalcode'] ?? ''?>
+                        </p>
                     </div>
-                    <div class="form">
-                        <label for="phone_number">
-                            <input type="text" name="phone_number" autocomplete="off" placeholder="Telefoon_nummer" required>
-                        </label>
+                    <div>
+                        <div class="form">
+                            <label for="phone_number">
+                                <input type="text" name="phone_number"  autocomplete="off" placeholder="Telefoon_nummer" >
+                            </label>
+                        </div>
+                        <p>
+                            <?= $errors['phone_number'] ?? ''?>
+                        </p>
                     </div>
                     <div class="form">
                         <label for="password">
-                            <input type="text" name="password" autocomplete="off" placeholder="Wachtwoord" required>
+                            <input type="password" name="password"  autocomplete="off" placeholder="Wachtwoord"  >
                         </label>
+                        <p>
+                            <?= $errors['password'] ?? ''?>
+                        </p>
                     </div>
                     <div class="form">
                         <input type="submit" name="submit" value="submit">

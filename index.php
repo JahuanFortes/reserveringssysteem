@@ -3,7 +3,6 @@ session_start();
 /**@var $db*/
 
 $login = false;
-// Is user logged in?
 if (isset($_SESSION['loggedInUser'])) {
     $login = true;
 }
@@ -11,10 +10,8 @@ if (isset($_SESSION['loggedInUser'])) {
 if (isset($_POST['submit'])) {
     require_once "connect_db.php";
 
-    // Get form data
     $email = mysqli_escape_string($db, $_POST['email']);
     $password = $_POST['password'];
-    // Server-side validation
     $errors = [];
     if ($email == '') {
         $errors['email'] = 'Please fill in your email.';
@@ -22,38 +19,27 @@ if (isset($_POST['submit'])) {
     if ($password == '') {
         $errors['password'] = 'Please fill in your password.';
     }
-
-    // If data valid
     if (empty($errors)) {
-
-        // SELECT the user from the database, based on the email address.
         $query = "SELECT * FROM customers WHERE email='$email'";
-
         $result = mysqli_query($db, $query);
-        // check if the user exists
+
         if (mysqli_num_rows($result) == 1) {
-            // Get user data from result
             $customer = mysqli_fetch_assoc($result);
 
-            // Check if the provided password matches the stored password in the database
             if (password_verify($password, $customer['password'])) {
                 $login = true;
-
-                // Store the user in the session
                 $_SESSION['loggedInUser'] = [
                     'customer_id'    => $customer['customer_id'],
                     'firstname'  => $customer['firstname'],
                     'email' => $customer['email'],
-
                 ];
-                // Redirect to secure page
                 header("Location: home.php");
+
             } else {
-                //error incorrect log in
                 $errors['loginFailed'] = 'The provided credentials do not match.';
             }
+
         } else {
-            //error incorrect log in
             $errors['loginFailed'] = 'The provided credentials do not match.';
         }
     }
@@ -70,8 +56,10 @@ if (isset($_POST['submit'])) {
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
-        <header class="header">
-            <h1>Database Customers</h1>
+        <header>
+            <div class="header">
+                <h1>Login</h1>
+            </div>
         </header>
         <main class="login-card">
             <form action="" method="post" name="form">
@@ -89,6 +77,7 @@ if (isset($_POST['submit'])) {
                     <input type="submit" name="submit" value="submit">
                 </div>
             </form>
+            <a href="register.php">Sign-up</a>
         </main>
     </body>
 </html>
